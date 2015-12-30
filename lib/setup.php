@@ -8,6 +8,11 @@ use Roots\Sage\Assets;
  * Theme setup
  */
 function setup() {
+
+  if ( ! isset( $content_width ) ) $content_width = 900;
+
+  add_theme_support( 'automatic-feed-links' );
+  
   // Enable features from Soil when plugin is activated
   // https://roots.io/plugins/soil/
   add_theme_support('soil-clean-up');
