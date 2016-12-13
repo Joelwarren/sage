@@ -15,24 +15,32 @@ use Roots\Sage\Wrapper;
       </div>
     <![endif]-->
     <?php
-      do_action('get_header');
-      get_template_part('templates/header');
+      if( !(is_page_template('template-blank-3.php') || is_page_template('template-blank-4.php') || is_page_template('template-blank-7.php') || is_page_template('template-blank-8.php')) ) {
+        do_action('get_header');
+        get_template_part('templates/header');
+      }
     ?>
-    <div class="wrap container" role="document">
-      <div class="content row">
-        <main class="main">
-          <?php include Wrapper\template_path(); ?>
-        </main><!-- /.main -->
-        <?php if (Setup\display_sidebar()) : ?>
-          <aside class="sidebar">
-            <?php include Wrapper\sidebar_path(); ?>
-          </aside><!-- /.sidebar -->
-        <?php endif; ?>
-      </div><!-- /.content -->
-    </div><!-- /.wrap -->
+    <?php if( !(is_page_template('template-blank-5.php') || is_page_template('template-blank-6.php') || is_page_template('template-blank-7.php') || is_page_template('template-blank-8.php')) ) { ?>
+      <div class="wrap container" role="document">
+        <div class="content row">
+    <?php } ?>
+          <main class="main">
+            <?php include Wrapper\template_path(); ?>
+          </main><!-- /.main -->
+          <?php if (Setup\display_sidebar()) : ?>
+            <aside class="sidebar">
+              <?php include Wrapper\sidebar_path(); ?>
+            </aside><!-- /.sidebar -->
+          <?php endif; ?>
+    <?php if( !(is_page_template('template-blank-5.php') || is_page_template('template-blank-6.php') || is_page_template('template-blank-7.php') || is_page_template('template-blank-8.php')) ) { ?>
+        </div><!-- /.content -->
+      </div><!-- /.wrap -->
+    <?php } ?>
     <?php
-      do_action('get_footer');
-      get_template_part('templates/footer');
+      if( !(is_page_template('template-blank-2.php') || is_page_template('template-blank-3.php') || is_page_template('template-blank-6.php') || is_page_template('template-blank-7.php')) ) {
+        do_action('get_footer');
+        get_template_part('templates/footer');
+      }
       wp_footer();
     ?>
   </body>
