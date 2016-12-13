@@ -111,20 +111,6 @@ function jk_woocommerce_quantity_input_args( $args, $product ) {
 	return $args;
 }
 
-add_filter( 'body_class', 'add_taxonomy_to_single', 99, 1 );
-function add_taxonomy_to_single( $classes ) {
-  if ( is_singular('product') ) {
-    global $post;
-    $my_terms = get_the_terms( $post->ID, 'product_tag' );
-    if ( $my_terms && ! is_wp_error( $my_terms ) ) {
-      foreach ($my_terms as $term) {
-        $classes[] = 'product_tag_' . $term->slug;
-      }
-    }
-    return $classes;
-  }
-}
-
 add_filter( 'gettext', 'theme_continue_shopping_button_text', 20, 3 );
 function theme_continue_shopping_button_text( $translated_text, $text, $domain ) {
 
