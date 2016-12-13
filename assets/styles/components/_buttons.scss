@@ -1,0 +1,110 @@
+
+.btn {
+  transition: all 0.2s;
+}
+
+.btn-white {
+  border-color: #fff;  background-color: #fff; color: #000;
+  &:hover,
+  &:focus { border-color: #000; background: #000; color: #fff; }
+}
+
+.btn-rounded {
+  border-radius: 25px;
+}
+
+.btn-transparent {
+  background: none;
+  &.btn-primary  {
+    border-color: $btn-primary-bg; color: $btn-primary-bg;
+    &:hover,
+    &:focus { border-color: $btn-primary-bg; background: $btn-primary-bg; color: $btn-primary-color; }
+  }
+  &.btn-success  {
+    border-color: $btn-success-bg; color: $btn-success-bg;
+    &:hover,
+    &:focus { border-color: $btn-success-bg; background: $btn-success-bg; color: $btn-success-color; }
+  }
+  &.btn-info {
+    border-color: $btn-info-bg; color: $btn-info-bg;
+    &:hover,
+    &:focus { border-color: $btn-info-bg; background: $btn-info-bg; color: $btn-info-color; }
+  }
+  &.btn-warning  {
+    border-color: $btn-warning-bg; color: $btn-warning-bg;
+    &:hover,
+    &:focus { border-color: $btn-warning-bg; background: $btn-warning-bg; color: $btn-warning-color; }
+  }
+  &.btn-danger   {
+    border-color: $btn-danger-bg;  color: $btn-danger-bg;
+    &:hover,
+    &:focus { border-color: $btn-danger-bg; background: $btn-danger-bg; color: $btn-danger-color; }
+  }
+  &.btn-white {
+    border-color: #fff;  color: #fff;
+    &:hover,
+    &:focus { border-color: #000; background: #000; color: #fff; }
+  }
+}
+
+body #cs-content a.x-btn {
+  @extend .btn;
+  @extend .btn-primary;
+  border-width: 1px!important;
+  text-shadow: none!important;
+  &:hover,
+  &:focus {
+    background: #000!important;
+    color: #fff!important;
+    border: 1px solid #000!important;
+  }
+}
+body #cs-content .x-btn.x-btn-large {
+  @extend .btn-lg;
+}
+
+body #cs-content .x-btn.x-btn-flat,
+body #cs-content .x-btn.x-btn-flat:hover { text-shadow: none; }
+
+body #cs-content .x-btn.x-btn-flat,
+body #cs-content .x-btn.x-btn-real { background: #000; box-shadow: none; text-shadow: none; }
+body #cs-content .x-btn.x-btn-flat:hover,
+body #cs-content .x-btn.x-btn-real:hover { background: #000; border-color: #000; box-shadow: none; text-shadow: none; }
+
+body #cs-content .x-btn.x-btn-rounded { border-radius: 4px; }
+
+body #cs-content .x-btn.x-btn-transparent { color: $brand-primary; border-color: $brand-primary; }
+body #cs-content .x-btn.x-btn-transparent:hover { color: #fff; border-color: $brand-primary; background: $brand-primary; }
+
+.button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  @extend .btn;
+  @extend .btn-primary;
+}
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  @extend .btn-lg;
+}
+
+.form-btn-brand-success .button {
+  @extend .btn-success;
+}
+.woocommerce .cart .button,
+.woocommerce .cart input.button {
+  padding: $padding-base-vertical $padding-base-horizontal !important;
+  font-size: $font-size-base !important;
+  line-height: $line-height-base !important;
+}
+
+.woocommerce #content table.cart td.actions .input-text,
+.woocommerce table.cart td.actions .input-text,
+.woocommerce-page #content table.cart td.actions .input-text,
+.woocommerce-page table.cart td.actions .input-text {
+  width: 140px;
+  max-width: 50%;
+}

@@ -1,0 +1,51 @@
+
+.woocommerce .quantity .qty { width: 60px; }
+
+.woocommerce-cart table.cart .product-thumbnail { width: 200px; max-width: 50%; }
+.woocommerce-cart table.cart img { width: 200px; }
+.woocommerce a.remove { margin: auto; }
+.woocommerce table.cart .actions .coupon { width: 280px; }
+.woocommerce table.cart .actions .coupon .input-text { float: left; }
+
+.woocommerce .cart-collaterals { margin-bottom: 45px; }
+.woocommerce .cart-collaterals .cart_totals,
+.woocommerce-page .cart-collaterals .cart_totals { max-width: 470px; margin-left: auto; }
+
+
+// Storefront style checkout
+form.woocommerce-checkout {
+	@include make-row();
+  margin-bottom: 45px;
+	> .woocommerce-error { margin: 0 15px 2em !important }
+}
+
+.woocommerce .col2-set {
+	@include make-sm-column(6);
+  .col-1,
+  .col-2 {
+    @include make-sm-column(12);
+  }
+}
+#order_review_heading,
+.woocommerce-checkout-review-order {
+	@include make-sm-column-offset(1);
+	@include make-sm-column(5);
+}
+
+.woocommerce form .form-row {
+  margin-bottom: $form-group-margin-bottom;
+}
+
+@media (min-width: $screen-sm) {
+  .woocommerce {
+  	.woocommerce-MyAccount-navigation {
+  		float: left;
+  		width: 30%;
+  	}
+
+  	.woocommerce-MyAccount-content {
+  		float: right;
+  		width: 68%;
+  	}
+  }
+}

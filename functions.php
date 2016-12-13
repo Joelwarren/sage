@@ -16,6 +16,11 @@ $sage_includes = [
   'lib/titles.php',    // Page titles
   'lib/wrapper.php',   // Theme wrapper class
   'lib/customizer.php' // Theme customizer
+  'lib/whitelabel.php',
+  'lib/wp-bootstrap-navwalker.php',
+  'lib/wp-bootstrap-pagination.php',
+  'lib/shortcodes.php',
+  'lib/woocommerce.php'
 ];
 
 foreach ($sage_includes as $file) {
