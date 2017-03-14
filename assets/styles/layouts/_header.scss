@@ -1,0 +1,35 @@
+
+.custom-logo-link {
+  @extend .navbar-brand;
+}
+
+.navbar-nav {
+  > li {
+    > .dropdown-menu {
+      right: auto;
+      left: 0;
+      @media (max-width: $grid-float-breakpoint-max) {
+        position: static;
+        box-shadow: none;
+        float: none;
+        margin-bottom: 10px;
+        background: none;
+        border: none;
+        box-shadow: none;
+        > li {
+          > a {
+            color: $navbar-inverse-link-color;
+            &:hover,
+            &:focus {
+              color: $navbar-inverse-link-hover-color;
+              background-color: $navbar-inverse-link-hover-bg;
+            }
+          }
+        }
+      }
+    }
+    @media (min-width: $grid-float-breakpoint) {
+      &:hover > ul.dropdown-menu { display: block; }
+    }
+  }
+}

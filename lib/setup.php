@@ -17,9 +17,9 @@ function setup() {
   // https://roots.io/plugins/soil/
   add_theme_support('soil-clean-up');
   //add_theme_support('soil-nav-walker');
-  add_theme_support('soil-nice-search');
+  //add_theme_support('soil-nice-search');
   //add_theme_support('soil-jquery-cdn');
-  add_theme_support('soil-relative-urls');
+  //add_theme_support('soil-relative-urls');
 
   add_theme_support('woocommerce');
 
@@ -79,8 +79,32 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Footer', 'sage'),
-    'id'            => 'sidebar-footer',
+    'name'          => __('Footer 1', 'sage'),
+    'id'            => 'sidebar-footer-1',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h4 class="widget-title">',
+    'after_title'   => '</h4>'
+  ]);
+  register_sidebar([
+    'name'          => __('Footer 2', 'sage'),
+    'id'            => 'sidebar-footer-2',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h4 class="widget-title">',
+    'after_title'   => '</h4>'
+  ]);
+  register_sidebar([
+    'name'          => __('Footer 3', 'sage'),
+    'id'            => 'sidebar-footer-3',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h4 class="widget-title">',
+    'after_title'   => '</h4>'
+  ]);
+  register_sidebar([
+    'name'          => __('Footer 4', 'sage'),
+    'id'            => 'sidebar-footer-4',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h4 class="widget-title">',
@@ -96,6 +120,10 @@ function display_sidebar() {
   static $display;
 
   isset($display) || $display = in_array(true, [
+    is_archive(),
+    is_single(),
+    is_home(),
+    is_shop()
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

@@ -1,0 +1,16 @@
+
+.content-info {
+  background: $gray-darker;
+  color: $gray-lighter;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-size: $font-size-small;
+  a {
+    color: $gray-lighter;
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .widget { margin-bottom: 30px; }
+}

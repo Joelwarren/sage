@@ -77,9 +77,3 @@ function copyright_year() {
   }
 
 }
-
-add_filter( 'wp_get_attachment_image_attributes', function( $attr ) {
-  if( isset( $attr['class'] )  && 'custom-logo' === $attr['class'] )
-    $attr['class'] = 'custom-logo navbar-brand';
-  return $attr;
-} );

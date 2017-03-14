@@ -1,6 +1,6 @@
 <header class="banner">
-  <nav class="site-header navbar nav-primary navbar-inverse">
-    <div class="container">
+  <div class="container">
+    <nav class="site-header navbar nav-primary navbar-inverse">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-primary" aria-expanded="false">
           <span class="icon-bar"></span>
@@ -25,6 +25,6 @@
         endif;
         ?>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>

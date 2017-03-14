@@ -5,27 +5,12 @@
   list-style: none;
 }
 
-.comments {
-  padding-top: 60px;
-}
-
 .comments h2 {
   margin-bottom: 50px;
-  color: #4288a9;
   font-family: $font-family-sans-serif;
-  font-size: 30px;
-  font-weight: 600;
   margin-bottom: 20px;
-  span {
-    float: right;
-    color: #a3b1bb;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.8;
-    font-style: italic;
-    position: relative;
-    top: 8px;
-  }
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
 }
 p.comment-notes,
 p.logged-in-as { font-size: 14px; }
@@ -41,13 +26,17 @@ p.logged-in-as { font-size: 14px; }
 .comment-list {
 	list-style: none;
 	margin-left: 0;
-	padding: 6px 100px 0 0;
-  font-size: 17px;
+	padding: 6px 0 0 0;
+  font-size: $font-size-small;
   p { margin-bottom: 10px!important; }
 	.comment {
 		padding-left: 100px;
+    margin-top: 30px;
 		margin-bottom: 40px;
     position: relative;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    min-height: 72px;
 		.avatar {
 			left: 0;
       top: 0;
@@ -57,6 +46,14 @@ p.logged-in-as { font-size: 14px; }
       position: absolute;
 		}
 	}
+
+  .pingback {
+    border: 1px solid $gray-lighter;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: $border-radius-base;
+    background: lighten($gray-lighter, 4);
+  }
 
 	.children {
 		list-style: none;
@@ -69,14 +66,6 @@ p.logged-in-as { font-size: 14px; }
         margin-top: 4px;
         width: 54px;
 			}
-
-      .fn:after {
-        content: '\e801';
-        font-family: fontello;
-        opacity: 0.5;
-        margin-left: 5px;
-        font-size: 12px;
-      }
 		}
 	}
 
@@ -94,7 +83,6 @@ p.logged-in-as { font-size: 14px; }
   }
 
 	.comment-text {
-		font-size: 15px;
     padding-top: 5px;
 		p { margin-bottom: 6px; }
 		@media (max-width: $screen-xs-max) {
@@ -115,12 +103,8 @@ p.logged-in-as { font-size: 14px; }
       vertical-align: middle;
     }
     .comment-metadata {
-      color: #a3b1bb;
       font-family: $font-family-sans-serif;
       font-size: 13px;
-      a {
-        color: #a3b1bb;
-      }
     }
 
 		.fn {
@@ -151,7 +135,7 @@ p.logged-in-as { font-size: 14px; }
 	.avatar {
 		box-sizing: content-box;
 	}
-	.author-name {
+	.fn {
 		&:after {
 			content: '(Post author)';
 			font-weight: normal;
@@ -168,23 +152,13 @@ p.logged-in-as { font-size: 14px; }
 }
 
 .comment-reply-title {
-  color: #c55469;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.5;
-  text-transform: lowercase;
 }
 
 #respond {
 	clear: both;
-  padding-top: 40px;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-bottom: 100px;
 	.form-submit {
 		text-align: right;
 		margin-bottom: 20px;
-    margin-right: 15px;
 	}
 }
 

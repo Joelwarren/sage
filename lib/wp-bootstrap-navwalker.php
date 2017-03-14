@@ -73,19 +73,30 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-			$output .= $indent . '<li' . $id . $value . $class_names .'>';
+      $button = false;
+      if ( strpos($class_names, 'navbar-btn') !== false ) {
+        $class_names = str_replace('navbar-btn', '', $class_names);
+        $button = true;
+      }
 
 			$atts = array();
+			$output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+      if( $button ) {
+        $atts['class'] = 'btn btn-primary';
+        $output .= '<p class="navbar-btn">';
+      }
+
 			$atts['title']  = ! empty( $item->title )	? $item->title	: '';
 			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
 			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
 
 			// If item has_children add atts to a.
 			if ( $args->has_children && $depth === 0 ) {
-				$atts['href']   		= '#';
-				$atts['data-toggle']	= 'dropdown';
-				$atts['class']			= 'dropdown-toggle';
-				$atts['aria-haspopup']	= 'true';
+				$atts['href']            = ! empty( $item->url ) ? $item->url : '';
+				$atts['data-hover']	     = 'dropdown';
+				$atts['class']			     = 'dropdown-toggle';
+				$atts['aria-haspopup']	 = 'true';
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
 			}
