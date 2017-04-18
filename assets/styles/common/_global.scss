@@ -26,10 +26,17 @@ h6, .h6 {}
   h6, .h6 { font-size: 13px; }
 }
 
-
 .fa-search:before {
   font-family: fontawesome;
   content: '\f002';
   font-style: normal;
+}
 
+body.admin-bar {
+  .navbar-fixed-top {
+    margin-top: 32px;
+    @media (max-width: 782px) {
+      margin-top: 44px;
+    }
+  }
 }

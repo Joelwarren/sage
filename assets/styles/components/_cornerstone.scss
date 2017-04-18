@@ -1,9 +1,7 @@
 
-
 #cs-content .x-container {
   display: flex;
-  flex: 1 0 auto;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   &.max.width {
     @media (min-width: $screen-sm) { width: $container-sm; }
     @media (min-width: $screen-md) { width: $container-md; }
@@ -13,9 +11,9 @@
     flex-flow: row-reverse wrap;
   }
   .x-column {
-    flex-basis: 100%;
-    flex: 1 100%;
+    flex: 1 0 100%;
     width: 100%;
+    max-width: 100%;
     margin: 0;
   }
   &:not(.marginless-columns) .x-column {
@@ -28,15 +26,15 @@
     padding-right: 15px!important;
   }
   @media (min-width: $screen-sm) {
-    .x-column.x-1-2 { flex-basis: 50%; width: 50%; }
-    .x-column.x-1-3 { flex-basis: 33.3333%; width: 33.3333%; }
-    .x-column.x-2-3 { flex-basis: 66.6666%; width: 66.6666%; }
-    .x-column.x-1-4 { flex-basis: 25%; width: 25%; }
-    .x-column.x-3-4 { flex-basis: 75%; width: 75%; }
-    .x-column.x-1-5 { flex-basis: 20%; width: 20%; }
-    .x-column.x-2-5 { flex-basis: 40%; width: 40%; }
-    .x-column.x-3-5 { flex-basis: 60%; width: 60%; }
-    .x-column.x-4-5 { flex-basis: 80%; width: 80%; }
+    .x-column.x-1-2 { flex-basis: 50%; max-width: 50%; width: 50%; }
+    .x-column.x-1-3 { flex-basis: 33.3333%; max-width: 33.3333%; width: 33.3333%; }
+    .x-column.x-2-3 { flex-basis: 66.6666%; max-width: 66.6666%; width: 66.6666%; }
+    .x-column.x-1-4 { flex-basis: 25%; max-width: 25%; width: 25%; }
+    .x-column.x-3-4 { flex-basis: 75%; max-width: 75%; width: 75%; }
+    .x-column.x-1-5 { flex-basis: 20%; max-width: 20%; width: 20%; }
+    .x-column.x-2-5 { flex-basis: 40%; max-width: 40%; width: 40%; }
+    .x-column.x-3-5 { flex-basis: 60%; max-width: 60%; width: 60%; }
+    .x-column.x-4-5 { flex-basis: 80%; max-width: 80%; width: 80%; }
   }
 }
 
@@ -45,6 +43,7 @@
   background-color: $brand-primary;
   border-color: $brand-primary;
   color: #fff;
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, 1.9, $btn-border-radius-base);
   &:hover,
   &:focus {
     background: darken($brand-primary, 10);

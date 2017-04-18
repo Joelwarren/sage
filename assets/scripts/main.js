@@ -21,9 +21,11 @@
 
         // JavaScript to be fired on all pages
         $('.dropdown-toggle').on("touchstart", function(e){
-          $(this).next('ul').toggle();
-          e.stopPropagation();
-          e.preventDefault();
+          if( ! $(this).hasClass('toggled') ) {
+            $(this).addClass('toggled').next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+          }
         });
 
       },

@@ -120,10 +120,9 @@ function display_sidebar() {
   static $display;
 
   isset($display) || $display = in_array(true, [
-    is_archive(),
-    is_single(),
-    is_home(),
-    is_shop()
+    is_post_type_archive('post'),
+    is_singular('post'),
+    is_home()
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
