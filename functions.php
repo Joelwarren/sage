@@ -17,6 +17,7 @@ $sage_includes = [
   'lib/wrapper.php',   // Theme wrapper class
   'lib/customizer.php', // Theme customizer
   'lib/whitelabel.php',
+  'lib/cornerstone.php',
   'lib/wp-bootstrap-navwalker.php',
   'lib/wp-bootstrap-pagination.php',
   'lib/woocommerce.php'
