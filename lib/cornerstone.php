@@ -1,5 +1,10 @@
 <?php
 
+// All cornerstone related functionality should exist in this file
+
+/**
+ * Remove specific Cornerstone Elements that we don't want to use.
+ */
 add_action('init', 'remove_cse');
 function remove_cse() {
   CS()->component( 'Element_Orchestrator' )->remove('responsive-text');
@@ -14,6 +19,11 @@ function remove_cse() {
   CS()->component( 'Element_Orchestrator' )->remove('toc');
 }
 
+/**
+ * Add an ACF field for the storing of Cornerstone post meta so that
+ * this is handled by ACF revisions allowing the ability to move between
+ * page revisions without breaking the Cornerstone editor
+ */
 if( function_exists('acf_add_local_field_group') ) {
 
   acf_add_local_field_group(array (

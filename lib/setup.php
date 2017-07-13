@@ -21,8 +21,6 @@ function setup() {
   //add_theme_support('soil-jquery-cdn');
   //add_theme_support('soil-relative-urls');
 
-  add_theme_support('woocommerce');
-
   add_theme_support( 'custom-logo', array(
     'height'      => 100,
     'width'       => 400,

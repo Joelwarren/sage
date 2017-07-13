@@ -21,10 +21,12 @@ $sage_includes = [
   'lib/wp-bootstrap-pagination.php'
 ];
 
+// only load specific functionality if plugin is active
 if ( class_exists( 'WooCommerce' ) ) {
   $sage_includes[] = 'lib/woocommerce.php';
 }
 
+// only load specific functionality if plugin is active
 if ( class_exists( 'CS' ) ) {
   $sage_includes[] = 'lib/cornerstone.php';
 }
