@@ -17,11 +17,17 @@ $sage_includes = [
   'lib/wrapper.php',   // Theme wrapper class
   'lib/customizer.php', // Theme customizer
   'lib/whitelabel.php',
-  'lib/cornerstone.php',
   'lib/wp-bootstrap-navwalker.php',
-  'lib/wp-bootstrap-pagination.php',
-  'lib/woocommerce.php'
+  'lib/wp-bootstrap-pagination.php'
 ];
+
+if ( class_exists( 'WooCommerce' ) ) {
+  $sage_includes[] = 'lib/woocommerce.php';
+}
+
+if ( class_exists( 'CS' ) ) {
+  $sage_includes[] = 'lib/cornerstone.php';
+}
 
 foreach ($sage_includes as $file) {
   if (!$filepath = locate_template($file)) {
