@@ -27,7 +27,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 // only load specific functionality if plugin is active
-if ( class_exists( 'CS' ) ) {
+if ( class_exists( 'Cornerstone_Plugin' ) ) {
   $sage_includes[] = 'lib/cornerstone.php';
 }
 

@@ -6,6 +6,11 @@
       ],
       "main": true
     },
+    "cornerstone.css": {
+      "files": [
+        "styles/cornerstone.scss"
+      ],
+    },
     "main.css": {
       "files": [
         "styles/main.scss"
