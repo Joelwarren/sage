@@ -112,21 +112,6 @@ function widgets_init() {
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
 /**
- * Determine which pages should NOT display the sidebar
- */
-function display_sidebar() {
-  static $display;
-
-  isset($display) || $display = in_array(true, [
-    is_post_type_archive('post'),
-    is_singular('post'),
-    is_home()
-  ]);
-
-  return apply_filters('sage/display_sidebar', $display);
-}
-
-/**
  * Theme assets
  */
 function assets() {

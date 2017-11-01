@@ -1,3 +1,5 @@
+<?php get_header(); ?>
+
 <?php get_template_part('templates/page', 'header'); ?>
 
 <?php if (!have_posts()) : ?>
@@ -12,3 +14,5 @@
 <?php endwhile; ?>
 
 <?php wp_bs_pagination(); ?>
+
+<?php get_footer(); ?>

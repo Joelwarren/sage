@@ -1,1 +1,1 @@
-<?php // only exists to pass theme check
+<?php get_template_part('templates/sidebar'); ?>
