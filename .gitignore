@@ -4,8 +4,4 @@ dist
 bower_components
 node_modules
 npm-debug.log
-<<<<<<< HEAD
 /.project
-=======
-vendor
->>>>>>> remotes/upstream/8.5.2
