@@ -29,10 +29,6 @@ function setup() {
     'header-text' => array( 'site-title', 'site-description' ),
   ) );
 
-  // Make theme available for translation
-  // Community translations can be found at https://github.com/roots/sage-translations
-  load_theme_textdomain('sage', get_template_directory() . '/lang');
-
   // Enable plugins to manage the document title
   // http://codex.wordpress.org/Function_Reference/add_theme_support#Title_Tag
   add_theme_support('title-tag');
@@ -56,10 +52,6 @@ function setup() {
   // Enable HTML5 markup support
   // http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
   add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
-
-  // Use main stylesheet for visual editor
-  // To add custom styles edit /assets/styles/layouts/_tinymce.scss
-  add_editor_style(Assets\asset_path('styles/main.css'));
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
 
@@ -72,8 +64,8 @@ function widgets_init() {
     'id'            => 'sidebar-primary',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
-    'before_title'  => '<h4 class="widget-title">',
-    'after_title'   => '</h4>'
+    'before_title'  => '<h5 class="widget-title">',
+    'after_title'   => '</h5>'
   ]);
 
   register_sidebar([
@@ -81,32 +73,32 @@ function widgets_init() {
     'id'            => 'sidebar-footer-1',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
-    'before_title'  => '<h4 class="widget-title">',
-    'after_title'   => '</h4>'
+    'before_title'  => '<h5 class="widget-title">',
+    'after_title'   => '</h5>'
   ]);
   register_sidebar([
     'name'          => __('Footer 2', 'sage'),
     'id'            => 'sidebar-footer-2',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
-    'before_title'  => '<h4 class="widget-title">',
-    'after_title'   => '</h4>'
+    'before_title'  => '<h5 class="widget-title">',
+    'after_title'   => '</h5>'
   ]);
   register_sidebar([
     'name'          => __('Footer 3', 'sage'),
     'id'            => 'sidebar-footer-3',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
-    'before_title'  => '<h4 class="widget-title">',
-    'after_title'   => '</h4>'
+    'before_title'  => '<h5 class="widget-title">',
+    'after_title'   => '</h5>'
   ]);
   register_sidebar([
     'name'          => __('Footer 4', 'sage'),
     'id'            => 'sidebar-footer-4',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
-    'before_title'  => '<h4 class="widget-title">',
-    'after_title'   => '</h4>'
+    'before_title'  => '<h5 class="widget-title">',
+    'after_title'   => '</h5>'
   ]);
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
@@ -115,6 +107,7 @@ add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
  * Theme assets
  */
 function assets() {
+  wp_enqueue_style('sage/fonts', 'https://fonts.googleapis.com/css?family=montserrat:400,500,600|Open+Sans:300,400,400i,700', false, null);
   wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
 
   if (is_single() && comments_open() && get_option('thread_comments')) {

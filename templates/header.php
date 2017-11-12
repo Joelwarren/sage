@@ -1,22 +1,19 @@
 <header class="banner">
-  <nav class="site-header navbar nav-primary navbar-inverse">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-primary" aria-expanded="false">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="sr-only">Toggle navigation</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
         <?php the_custom_logo(); ?>
       </div>
 
-      <div class="collapse navbar-collapse" id="navbar-primary">
+      <div class="collapse navbar-collapse" id="navbar">
         <?php
         if (has_nav_menu('primary_navigation')) :
           wp_nav_menu([
             'theme_location'  => 'primary_navigation',
-            'menu_class'      => 'nav navbar-nav navbar-right',
+            'menu_class'      => 'navbar-nav ml-auto',
             'depth'           => 2,
             'container'       => null,
             'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',

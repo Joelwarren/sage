@@ -1,0 +1,13 @@
+
+.custom-logo-link {
+  @extend .navbar-brand;
+}
+
+.sidebar {
+  .widget {
+    margin-bottom: 40px;
+  }
+}
+
+.site-footer {
+}

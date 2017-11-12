@@ -1,0 +1,612 @@
+@import "../../bower_components/bootstrap/scss/functions";
+@import "common/variables";
+@import "../../bower_components/bootstrap/scss/_mixins.scss";
+
+/*
+----------------------------------------------------------------
+
+Gravity Forms Front End Form Styles
+http: //www.gravityforms.com
+updated: January 12, 2017 04:02 PM (GMT-05:00) US Eastern Time
+
+----------------------------------------------------------------
+*/
+
+// default styling
+// complex field styling
+// validation styling
+// mulitpage & footer
+// Pricing
+// Progress bar
+// Password stretch
+// Table list
+// Chosen?
+// Credit card
+// Drop area
+// Form save
+// Datepicker
+// html field
+// gf ready fields
+
+
+// default styling
+.gform_wrapper {
+  form {
+    text-align: left;
+  }
+  label.gfield_label {
+    font-weight: bold;
+  }
+  input:not(.button),
+  select,
+  textarea {
+    display: block;
+    width: 100%;
+    padding: $input-btn-padding-y $input-btn-padding-x;
+    font-size: $font-size-base;
+    line-height: $input-btn-line-height;
+    color: $input-color;
+    background-color: $input-bg;
+    background-image: none;
+    background-clip: padding-box;
+    border: $input-btn-border-width solid $input-border-color;
+    @include border-radius();
+    @include box-shadow($input-box-shadow);
+    @include transition($input-transition);
+    &::-ms-expand {
+      background-color: transparent;
+      border: 0;
+    }
+    @include form-control-focus();
+    &::placeholder {
+      color: $input-placeholder-color;
+      opacity: 1;
+    }
+  }
+  input[type=file] {
+    border: none;
+  }
+  select {
+    &:not([size]):not([multiple]) {
+      height: $input-height;
+    }
+
+    &:focus::-ms-value {
+      color: $input-color;
+      background-color: $input-bg;
+    }
+  }
+
+  textarea {
+    &.small {
+      height: 80px;
+    }
+    &.medium {
+      height: 120px;
+    }
+    &.large {
+      height: 160px;
+    }
+  }
+
+  .button {
+    display: inline-block;
+    font-weight: $btn-font-weight;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: $input-btn-border-width solid transparent;
+    @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
+    @include transition($btn-transition);
+    @include hover-focus {
+      text-decoration: none;
+    }
+    &:focus,
+    &.focus {
+      outline: 0;
+      box-shadow: $btn-focus-box-shadow;
+    }
+    @include button-variant(theme-color("primary"), theme-color("primary"));
+    cursor: pointer;
+    float: right;
+
+    &.gform_previous_button {
+      float: left;
+      @include button-variant(theme-color("secondary"), theme-color("secondary"));
+    }
+  }
+
+  ul {
+    &.gform_fields {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+    li.gfield {
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-bottom: $form-group-margin-bottom;
+      width: 100%;
+    }
+    li.gf_left_half,
+    li.gf_right_half {
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+  }
+
+  ul.gfield_checkbox,
+  ul.gfield_radio {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    > li {
+      padding-left: 1.25rem;
+      margin-bottom: 0;
+      input {
+        position: absolute;
+        margin-top: .35rem;
+        margin-left: -1.25rem;
+        width: auto !important;
+      }
+    }
+  }
+}
+
+.gform_wrapper .hidden_label .gfield_label {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/* Errors and validation */
+
+.gform_wrapper {
+  .validation_error {
+    padding: $alert-padding-y $alert-padding-x;
+    margin-bottom: $alert-margin-bottom;
+    border: $alert-border-width solid transparent;
+    text-align: center;
+    font-size: $font-size-sm;
+    border-radius: $btn-border-radius;
+    @include alert-variant(theme-color-level("danger", -10), theme-color-level("danger", -9), theme-color-level("danger", 6));
+  }
+  .validation_message {
+    padding: 0;
+    margin-top: 4px;
+    font-size: $font-size-sm;
+    color: theme-color-level("danger", -6);
+    opacity: 0.7;
+  }
+  .gfield_required {
+    color: theme-color("danger");
+    margin-left: 10px;
+  }
+  .gfield_error {
+    .gfield_label {
+      color: theme-color-level("danger", 6);
+    }
+    .ginput_container > * { border-color: theme-color-level("danger", 6); }
+  }
+}
+
+.gform_wrapper {
+  .gf_progressbar_title { display: none; }
+  .gf_progressbar {
+    display: flex;
+    overflow: hidden; // force rounded corners by cropping it
+    font-size: $progress-font-size;
+    line-height: $progress-height;
+    text-align: center;
+    background-color: $progress-bg;
+    @include border-radius($progress-border-radius);
+    @include box-shadow($progress-box-shadow);
+    margin-bottom: 30px;
+  }
+  .gf_progressbar_percentage {
+    height: $progress-height;
+    line-height: $progress-height;
+    color: $progress-bar-color;
+    background-color: $progress-bar-bg;
+    @include transition($progress-bar-transition);
+  }
+}
+
+/* complex fields */
+.ginput_complex {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+  > span {
+    flex: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    &.address_line_1  { flex: 0 0 100%; }
+    &.address_line_2  { flex: 0 0 100%; }
+    &.address_city    { flex: 0 0 50%; }
+    &.address_state   { flex: 0 0 50%; }
+    &.address_zip     { flex: 0 0 50%; }
+    &.address_country { flex: 0 0 50%; }
+    &.address_city    { flex: 0 0 50%; }
+  }
+}
+
+.gform_wrapper .clear-multi {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: -10px;
+  margin-right: -10px;
+  > div {
+    flex: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100px;
+  }
+  i { display: none; }
+}
+
+.ginput_container_date {
+  position: relative;
+  img {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -9px;
+  }
+}
+
+table.gfield_list {
+  width: 100%;
+  .gfield_list_icons {
+    padding: 6px;
+    width: 49px;
+    img { margin: 0 auto; }
+  }
+}
+
+/* chosen */
+
+.gform_wrapper {
+  select.chosen-select {
+    visibility: hidden;
+    height: $input-height;
+    min-height: $input-height;
+  }
+  .chosen-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: inherit;
+    user-select: none;
+    box-sizing: border-box;
+    * {
+      box-sizing: border-box;
+    }
+    &.chosen-container-multi .chosen-choices {
+      min-height: $input-height;
+    }
+  }
+  .ginput_container.ginput_container_multiselect .chosen-container.chosen-container-multi ul.chosen-choices li.search-field input.default {
+    height: $input-height;
+  }
+  .chosen-container {
+    .chosen-drop {
+      position: absolute;
+      top: 100%;
+      left: -9999px;
+      z-index: 1010;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      border: $input-btn-border-width solid $input-border-color;
+      border-top: 0;
+      background: $input-bg;
+    }
+    &.chosen-with-drop .chosen-drop {
+      left: 0;
+    }
+    a {
+      cursor: pointer;
+    }
+  }
+  .chosen-container-single {
+    .chosen-single {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      padding: 0;
+      height: $input-height;
+      border: $input-btn-border-width solid $input-border-color;
+      @include border-radius();
+      background-color: $input-bg;
+      color: $input-color;
+      text-decoration: none;
+      white-space: nowrap;
+      line-height: $input-height;
+    }
+    .chosen-default {
+      color: $input-color;
+    }
+    .chosen-single span {
+      display: block;
+      overflow: hidden;
+      margin-right: 26px;
+      padding: 0 $input-btn-padding-x;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .chosen-single-with-deselect span {
+      margin-right: 38px;
+    }
+    .chosen-single abbr {
+
+    }
+    .chosen-single div {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      width: 18px;
+      height: 100%;
+      b {
+
+      }
+    }
+    .chosen-search {
+      position: relative;
+      z-index: 1010;
+      margin: 0;
+      padding: 3px 4px;
+      white-space: nowrap;
+      input[type="text"] {
+        margin: 1px 0;
+        padding: 4px 20px 4px 5px;
+        width: 100%;
+        height: auto;
+        border: $input-btn-border-width solid $input-border-color;
+        font-size: 1em;
+        line-height: normal;
+        border-radius: 0;
+      }
+    }
+    .chosen-drop {
+      margin-top: -1px;
+      border-radius: 0 0 4px 4px;
+      background-clip: padding-box;
+    }
+    &.chosen-container-single-nosearch .chosen-search {
+      position: absolute;
+      left: -9999px;
+    }
+  }
+  .chosen-container .chosen-results {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 4px 4px 0;
+    padding: 0 0 0 4px;
+    max-height: 240px;
+    -webkit-overflow-scrolling: touch;
+    li {
+      display: none;
+      margin: 0;
+      padding: $input-btn-padding-y $input-btn-padding-x;
+      list-style: none;
+      line-height: 15px;
+      -webkit-touch-callout: none;
+      &.active-result {
+        display: list-item;
+        cursor: pointer;
+      }
+      &.disabled-result {
+        display: list-item;
+        color: #CCC;
+        cursor: default;
+      }
+      &.highlighted {
+        background-color: theme-color("primary");
+        color: theme-color("light");
+      }
+      &.no-results {
+        display: list-item;
+        background: $gray-200;
+      }
+      &.group-result {
+        display: list-item;
+        font-weight: 700;
+        cursor: default;
+      }
+      &.group-option {
+        padding-left: 15px;
+      }
+      em {
+        font-style: normal;
+        text-decoration: underline;
+      }
+    }
+  }
+  .chosen-container-multi {
+    .chosen-choices {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: auto !important;
+      height: 1%;
+      border: $input-btn-border-width solid $input-border-color;
+      background-color: $input-bg;
+      cursor: text;
+      li {
+        float: left;
+        list-style: none;
+        &.search-field {
+          margin: 0;
+          padding: 0;
+          white-space: nowrap;
+          input[type="text"] {
+            margin: 1px 0;
+            padding: 5px;
+            height: $input-height;
+            border: 0 !important;
+            background: transparent !important;
+            box-shadow: none;
+            color: $input-color;
+            font-size: 100%;
+            line-height: normal;
+            border-radius: 0;
+          }
+          .default {
+            color: #999;
+          }
+        }
+        &.search-choice {
+          position: relative;
+          margin: 4px 0 4px 4px;
+          padding: 2px 20px 2px 8px;
+          border: $input-btn-border-width solid $input-border-color;
+          @include border-radius();
+          background-color: $gray-300;
+          color: #333;
+          cursor: default;
+          .search-choice-close {
+            position: absolute;
+            top: 50%;
+            margin-top: -6px;
+            right: 3px;
+            display: block;
+            width: 12px;
+            height: 12px;
+            line-height: 12px;
+            &:before {
+              content: '\00d7';
+              line-height: 12px;
+            }
+          }
+        }
+        &.search-choice-disabled {
+          padding-right: 5px;
+          border: $input-btn-border-width solid $input-border-color;
+          background-color: #E4E4E4;
+          color: #666;
+        }
+        &.search-choice-focus {
+          background: #D4D4D4;
+        }
+      }
+    }
+    .chosen-results {
+      margin: 0;
+      padding: 0;
+    }
+    .chosen-drop .result-selected {
+      display: list-item;
+      color: #CCC;
+      cursor: default;
+    }
+  }
+  .chosen-container-active {
+    .chosen-single {
+      border: $input-btn-border-width solid $input-border-color;
+    }
+    &.chosen-with-drop .chosen-single {
+      border: $input-btn-border-width solid $input-border-color;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .chosen-choices {
+      border: 1px solid theme-color("primary");
+      li.search-field input[type="text"] {
+        color: #111 !important;
+      }
+    }
+  }
+  .chosen-disabled {
+    opacity: .5 !important;
+    cursor: default;
+    .chosen-single, .chosen-choices .search-choice .search-choice-close {
+      cursor: default;
+    }
+  }
+}
+
+/* datepicker */
+#ui-datepicker-div {
+  background: $input-bg;
+  border: $input-btn-border-width solid $input-border-color;
+  @include border-radius();
+  display: none;
+  padding: $spacer;
+  width: 300px;
+
+  .ui-icon {
+    color: transparent;
+    cursor: pointer;
+    font-size: 0px;
+    &:before {
+      color: theme-color("primary");
+      font-family:"FontAwesome";
+      font-size: 1rem;
+    }
+  }
+
+  .ui-datepicker-prev {
+    float: left;
+    width: 10%;
+    .ui-icon:before { content:'\f060'; }
+    &.ui-state-disabled { display:none; }
+  }
+
+  .ui-datepicker-next {
+    float: right;
+    width: 10%;
+    .ui-icon:before { content:'\f061'; float: right; }
+    &.ui-state-disabled { display:none; }
+  }
+
+  .ui-datepicker-title {
+    select {
+      float: left;
+      width: 70%;
+      text-align: center;
+    }
+
+    .ui-datepicker-month { margin: 0px 5% 6px; }
+    .ui-datepicker-year { margin: 0px 15% 6px; }
+  }
+
+  .ui-datepicker-today {
+    background-color: theme-color("primary");
+    @include border-radius();
+    a { color: theme-color("light"); }
+  }
+
+  table  {
+    width: 100%;
+    td, th {
+      text-align: center;
+    }
+    td {
+      a {
+        display: block;
+        text-decoration: none;
+        padding: 5px;
+      }
+    }
+  }
+}

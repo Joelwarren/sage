@@ -12,9 +12,19 @@
       ],
       "main": true
     },
-    "customizer.js": {
+    "cornerstone.css": {
       "files": [
-        "scripts/customizer.js"
+        "styles/cornerstone.scss"
+      ]
+    },
+    "gravity-forms.css": {
+      "files": [
+        "styles/gravity-forms.scss"
+      ]
+    },
+    "woocommerce.css": {
+      "files": [
+        "styles/woocommerce.scss"
       ]
     },
     "jquery.js": {

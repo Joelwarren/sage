@@ -1,0 +1,334 @@
+/**
+ * woocommerce-layout.scss
+ * Applies layout to the default WooCommerce frontend design
+ */
+
+/**
+ * Styling begins
+ */
+.woocommerce, .woocommerce-page {
+
+	.woocommerce-message,
+	.woocommerce-error,
+	.woocommerce-info {
+    clear: both;
+    width: 100%;
+		.button {
+			float: right;
+      margin-top: -3.5px;
+      @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius-sm);
+		}
+	}
+
+	/**
+	 * General layout styles
+	 */
+	.col2-set {
+		@include make-row();
+    > div {
+      @include make-col-ready();
+      @include make-col(12);
+      @include media-breakpoint-up(md) {
+        @include make-col(6);
+      }
+    }
+	}
+
+	/**
+	 * Product page
+	 */
+	div.product,
+	#content div.product {
+    @include make-row();
+		div.images {
+			@include make-col-ready();
+		}
+
+		div.summary {
+			@include make-col-ready();
+		}
+    @include media-breakpoint-up(md) {
+  		div.images {
+        @include make-col(5);
+  		}
+
+  		div.summary {
+        @include make-col(7);
+  		}
+    }
+
+		.woocommerce-tabs {
+			clear: both;
+			@include make-col-ready();
+      @include make-col(12);
+      margin-bottom: $spacer;
+		}
+
+    .upsells.products {
+			clear: both;
+			@include make-col-ready();
+      @include make-col(12);
+      margin-bottom: $spacer;
+      @include media-breakpoint-down(md) {
+        ul.products li {
+          @include make-col(6);
+        }
+      }
+    }
+
+    .related.products {
+			clear: both;
+			@include make-col-ready();
+      @include make-col(12);
+      margin-bottom: $spacer;
+      @include media-breakpoint-down(md) {
+        ul.products li {
+          @include make-col(6);
+        }
+      }
+    }
+	}
+
+	/**
+	 * Product loops
+	 */
+	ul.products {
+		clear: both;
+    @include make-row();
+
+		li.product {
+			@include make-col-ready();
+      @include media-breakpoint-up(md) {
+        @include make-col(3);
+      }
+		}
+	}
+
+  @include media-breakpoint-up(md) {
+  	&.columns-1 {
+  		ul.products {
+  			li.product {
+  				@include make-col(12);
+  			}
+  		}
+  	}
+
+  	&.columns-2 {
+  		ul.products {
+  			li.product {
+  				@include make-col(6);
+  			}
+  		}
+  	}
+
+  	&.columns-3 {
+  		ul.products {
+  			li.product {
+  				@include make-col(4);
+  			}
+  		}
+  	}
+
+  	&.columns-5 {
+  		ul.products {
+  			li.product {
+  				-ms-flex: 0 0 20%;
+          flex: 0 0 20%;
+          max-width: 20%;
+  			}
+  		}
+  	}
+
+  	&.columns-6 {
+  		ul.products {
+  			li.product {
+  				@include make-col(2);
+  			}
+  		}
+  	}
+  }
+
+	.woocommerce-result-count {
+		float: left;
+	}
+	.woocommerce-ordering {
+		float: right;
+	}
+
+	.cart-collaterals {
+    @include make-row();
+
+		.related {
+			@include make-col-ready();
+
+      ul.products {
+        li {
+          @include make-col(6);
+        }
+      }
+		}
+
+		.cross-sells {
+			@include make-col-ready();
+
+			ul.products {
+				li {
+          @include make-col(6);
+				}
+			}
+		}
+
+		.cart_totals {
+			@include make-col-ready();
+		}
+    @include media-breakpoint-up(md) {
+
+  		.related {
+        @include make-col(6);
+  		}
+
+  		.cross-sells {
+        @include make-col(6);
+
+  			ul.products {
+  				li {
+            @include make-col(4);
+  				}
+  			}
+  		}
+
+  		.cart_totals {
+        @include make-col(6);
+      }
+    }
+	}
+
+	/**
+	 * Cart sidebar
+	 */
+	ul.cart_list,
+	ul.product_list_widget {
+		li {
+			@include mediaright();
+		}
+	}
+
+	/**
+	 * Forms
+	 */
+	form {
+    &.woocommerce-EditAccountForm.edit-account {
+      @include make-row();
+      p {
+        @include make-col-ready();
+      }
+      fieldset {
+  			width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        legend {
+    			@include make-col-ready();
+        }
+      }
+    }
+  }
+
+  form {
+    .woocommerce-billing-fields__field-wrapper,
+    .woocommerce-shipping-fields__field-wrapper,
+    .woocommerce-additional-fields__field-wrapper {
+      clear: left;
+      @include make-row();
+    }
+		.form-row {
+			@include make-col-ready();
+
+			label {
+				display: block;
+
+				&.checkbox {
+					display: inline;
+				}
+			}
+		}
+
+		.form-row-first,
+		.form-row-last {
+			@include make-col-ready();
+			@include make-col(6);
+		}
+	}
+
+	#payment {
+		.wc-terms-and-conditions,
+    .terms {
+			text-align: left;
+			padding: 0 $spacer 0 0;
+		}
+
+		#place_order {
+			width: 100%;
+      @include button-size($input-btn-padding-y-lg, $input-btn-padding-x-lg, $font-size-lg, $line-height-lg, $btn-border-radius-lg);
+		}
+	}
+
+	.woocommerce-terms-and-conditions {
+		margin-bottom: 1.618em;
+		padding: 1.618em;
+	}
+
+	/**
+	 * oEmbeds
+	 */
+	.woocommerce-oembed {
+		position: relative;
+	}
+}
+
+.woocommerce-account {
+  .woocommerce {
+    @include make-row();
+  }
+	.woocommerce-MyAccount-navigation {
+    clear: left;
+    @include make-col-ready();
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none;
+      li {
+        flex-basis: 100%;
+        flex-grow: 1;
+        a {
+          display: block;
+          padding: $nav-link-padding-y $nav-link-padding-x;
+          @include border-radius($nav-pills-border-radius);
+
+          @include hover-focus {
+            text-decoration: none;
+          }
+        }
+
+        &.is-active a {
+          color: $nav-pills-link-active-color;
+          background-color: $nav-pills-link-active-bg;
+        }
+      }
+    }
+	}
+
+	.woocommerce-MyAccount-content {
+    @include make-col-ready();
+	}
+
+  @include media-breakpoint-up(md) {
+	  .woocommerce-MyAccount-navigation {
+      @include make-col(3);
+    }
+  	.woocommerce-MyAccount-content {
+      @include make-col(9);
+    }
+  }
+}

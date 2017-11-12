@@ -14,10 +14,9 @@ $sage_includes = [
   'lib/extras.php',    // Custom functions
   'lib/setup.php',     // Theme setup
   'lib/titles.php',    // Page titles
-  'lib/customizer.php', // Theme customizer
   'lib/whitelabel.php',
-  'lib/wp-bootstrap-navwalker.php',
-  'lib/wp-bootstrap-pagination.php'
+  'lib/navwalker.php',
+  'lib/pagination.php'
 ];
 
 // only load specific functionality if plugin is active
@@ -25,9 +24,11 @@ if ( class_exists( 'WooCommerce' ) ) {
   $sage_includes[] = 'lib/woocommerce.php';
 }
 
-// only load specific functionality if plugin is active
-if ( class_exists( 'CS' ) ) {
   $sage_includes[] = 'lib/cornerstone.php';
+
+// only load specific functionality if plugin is active
+if ( class_exists( 'GFForms' ) ) {
+  $sage_includes[] = 'lib/gravity-forms.php';
 }
 
 foreach ($sage_includes as $file) {
