@@ -24,8 +24,6 @@ if ( class_exists( 'WooCommerce' ) ) {
   $sage_includes[] = 'lib/woocommerce.php';
 }
 
-  $sage_includes[] = 'lib/cornerstone.php';
-
 // only load specific functionality if plugin is active
 if ( class_exists( 'GFForms' ) ) {
   $sage_includes[] = 'lib/gravity-forms.php';

@@ -22,3 +22,12 @@ body.admin-bar {
     }
   }
 }
+
+.section {
+  padding-top: 1.875rem;
+  padding-bottom: 1.875rem;
+  @include media-breakpoint-up(md) {
+    padding-top: 2.8125rem;
+    padding-bottom: 2.8125rem;
+  }
+}

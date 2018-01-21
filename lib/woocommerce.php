@@ -27,7 +27,7 @@ add_action( 'woocommerce_before_main_content', __NAMESPACE__ . '\\sage_output_co
 add_action( 'woocommerce_after_main_content',  __NAMESPACE__ . '\\sage_output_content_wrapper_inner_end',   1 );
 add_action( 'woocommerce_sidebar',  __NAMESPACE__ . '\\sage_output_content_wrapper_end',   20 );
 function sage_output_content_wrapper() {
-  echo '<div class="shop container"><div class="row">';
+  echo '<div class="shop container section"><div class="row">';
 }
 function sage_output_content_wrapper_inner() {
   echo '<main class="main">';

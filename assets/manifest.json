@@ -32,6 +32,6 @@
     }
   },
   "config": {
-    "devUrl": "http://loc.playground.com.au"
+    "devUrl": "http://example.dev"
   }
 }
