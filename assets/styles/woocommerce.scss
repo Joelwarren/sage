@@ -8,7 +8,6 @@
  * Imports
  */
 @import 'woocommerce/mixins';
-@import 'woocommerce/variables';
 @import 'woocommerce/animation';
 @import 'woocommerce/fonts';
 
@@ -16,7 +15,7 @@
 @import "common/variables";
 @import "../../bower_components/bootstrap/scss/_mixins.scss";
 
-@import "woocommerce/layout";
+@import "woocommerce/woocommerce-layout";
 
 .form-control {
   display: block;
@@ -2094,6 +2093,7 @@ button.pswp__button--zoom:hover {
 .select2-container .select2-selection--single {
   height: $input-height;
 }
+
 .select2-container--default {
   .select2-selection--single {
     border: $input-btn-border-width solid $input-border-color;

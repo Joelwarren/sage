@@ -288,7 +288,18 @@
 .woocommerce-account {
   .woocommerce {
     @include make-row();
+
+    > h2 {
+			@include make-col-ready();
+			@include make-col(12);
+    }
   }
+
+  .woocommerce-form-login {
+    width: 100%;
+    max-width: 450px;
+  }
+
 	.woocommerce-MyAccount-navigation {
     clear: left;
     @include make-col-ready();
@@ -321,6 +332,18 @@
 
 	.woocommerce-MyAccount-content {
     @include make-col-ready();
+
+    .col-1,
+    .col-2 {
+			@include make-col-ready();
+      @include media-breakpoint-up(md) {
+        @include make-col(6);
+      }
+    }
+
+    .woocommerce-address-fields__field-wrapper {
+      @include make-row();
+    }
 	}
 
   @include media-breakpoint-up(md) {

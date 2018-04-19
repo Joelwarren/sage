@@ -10,6 +10,14 @@ add_theme_support( 'wc-product-gallery-zoom' );
 add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-slider' );
 
+// add category nicenames in body and post class
+function category_id_class( $classes ) {
+    global $product;
+    $classes[] = 'product-type-' . $product->get_type();
+    return $classes;
+}
+add_filter( 'post_class', __NAMESPACE__ .'\\category_id_class' );
+
 /**
 * Theme assets
 */
@@ -64,3 +72,6 @@ function sage_sorting_wrapper() {
 function sage_sorting_wrapper_close() {
     echo '</div></div>';
 }
+
+add_filter( 'woocommerce_product_description_heading', '__return_false');
+add_filter( 'woocommerce_product_additional_information_heading', '__return_false');
