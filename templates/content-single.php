@@ -10,6 +10,10 @@
         <footer>
             <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
         </footer>
+<<<<<<< HEAD
         <?php comments_template( '', true); ?>
+=======
+        <?php comments_template('/templates/comments.php'); ?>
+>>>>>>> 0f500ccbf3c1af6623e0ebf60508c419b54619a1
     </article>
 <?php endwhile; ?>
