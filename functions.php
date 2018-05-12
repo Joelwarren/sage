@@ -26,11 +26,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 // only load specific functionality if plugin is active
 if ( class_exists( 'GFForms' ) ) {
-<<<<<<< HEAD
     $sage_includes[] = 'lib/gravity-forms.php';
-=======
-$s  age_includes[] = 'lib/gravity-forms.php';
->>>>>>> 0f500ccbf3c1af6623e0ebf60508c419b54619a1
 }
 
 foreach ($sage_includes as $file) {
