@@ -19,15 +19,6 @@
     'common': {
       init: function() {
 
-        // JavaScript to be fired on all pages
-        $('.dropdown-toggle').on("touchstart", function(e){
-          if( ! $(this).hasClass('toggled') ) {
-            $(this).addClass('toggled').next('ul').toggle();
-            e.stopPropagation();
-            e.preventDefault();
-          }
-        });
-
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

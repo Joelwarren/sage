@@ -1,4 +1,4 @@
-<footer class="content-info">
+<footer class="site-footer">
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 copyright">
-                    
+
                 </div><!-- .col -->
                 <div class="col-md-6 credit">
 

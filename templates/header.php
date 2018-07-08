@@ -1,4 +1,4 @@
-<header class="banner">
+<header class="site-header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <?php the_custom_logo(); ?>
